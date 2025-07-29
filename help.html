@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Help
+{% endblock %}
+
+{% block main %}
+    <h1>Help</h1>
+
+    <h2>Setting up your dataset</h2>
+    <p>The <a href="/">setup form</a> allows you to customize the datasets we'll generate for you, by editing the fields as needed:</p>
+
+    <p class="indent">&#10148; How many sets?</p>
+    <p class="indent">&#160;&#160;&#160; This is the number of variables: if you picture your dataset as a table, the number of sets corresponds to the number of rows.</p>
+
+    <p class="indent">&#10148; How many numbers per set?</p>
+    <p class="indent">&#160;&#160;&#160; This field defines the length of each set - that is, the number of columns in your table.</p>
+
+    <p> </p>
+
+    <p class="indent">&#10148; Min/max digits per number</p>
+    <p class="indent">&#160;&#160;&#160; These options control the number of digits in each number: for each set, our generator will choose a random length within the range you've submitted and will return the numbers accordingly.</p>
+    <p class="indent" style="color: #EF27A6">Note: The number of digits will be always be the same within the set.</p>
+
+    <p> </p>
+
+    <p class="indent">&#10148; Currency</p>
+    <p class="indent">&#160;&#160;&#160; If this option is active, we'll add two decimal points to each number.</p>
+    <p class="indent" style="color: #EF27A6">Note: This field adds two digits to the min/max range, so there's no need to adjust those.</p>
+{% endblock %}

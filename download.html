@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Download
+{% endblock %}
+
+{% block main %}
+    <!-- <div action="/" method="get"> -->
+    <div action="/download" method="post">
+        <h1>Your dataset is ready!</h1>
+
+        <h2>These were your settings:</h2>
+
+        <p>Sets: {{ rows }}</p>
+        <p>Numbers per set: {{ columns }}</p>
+        <p>Range for the number of digits: min {{ min }} | max {{ max }}</p>
+        <p>Currency: {{ currency }}</p>
+
+        <a class="btn btn-primary" href="{{ url_for('static', filename=filename) }}" style="margin-right: 5px" download>Download</a>
+        <a class="btn btn-primary" href="/" style="margin-left: 5px">Go back</a>
+    </div>
+{% endblock %}

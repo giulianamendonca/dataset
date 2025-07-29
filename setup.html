@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Setup
+{% endblock %}
+
+{% block main %}
+    <h1>Set up your dataset</h1>
+
+    <div style="padding-bottom: 1rem">
+        <a href="/help">Need help?</a>
+    </div>
+
+    <!-- Alert user if max and min values are incompatible-->
+    {% if alert %}
+    <div class="alert" role="alert" id="alert">
+        <div style="font-weight: bold">Attention: </div>
+        Please check min and max values.
+    </div>
+    {% endif %}
+
+    <form action="/" method="post">
+        <!-- First row -->
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="rows" class="form-label">How many sets?</label>
+                    {% if alert %}
+                    <input class="form-control" name="rows" value={{ rows }} type="number" required>
+                    {% else %}
+                    <input class="form-control" name="rows" placeholder="0" type="number" required>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="mb-3">
+                    <label for="columns" class="form-label">How many numbers per set?</label>
+                    {% if alert %}
+                    <input class="form-control" name="columns" value={{ columns }} type="number" required>
+                    {% else %}
+                    <input class="form-control" name="columns" placeholder="0" type="number" required>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col">
+            </div>
+        </div>
+
+        <!-- Second row -->
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="min" class="form-label">Min digits per number</label>
+                    {% if alert %}
+                    <input class="form-control" name="min" value={{ min }} type="number" required>
+                    {% else %}
+                    <input class="form-control" name="min" placeholder="0" type="number" required>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="mb-3">
+                    <label for="max" class="form-label max">Max digits per number</label>
+                    {% if alert %}
+                    <input class="form-control" name="max" value={{ max }} type="number" required>
+                    {% else %}
+                    <input class="form-control" name="max" placeholder="0" type="number" required>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col align-self-end" style="padding-bottom: 1rem">
+                <div class="mb-3">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" name="currency" {{ 'checked' if currency == 'on' else '' }}>
+                        <label class="form-check-label" for="currency">Currency</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Third row -->
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <button class="btn btn-primary" type="submit">Generate</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
