@@ -1,5 +1,4 @@
 # Dataset Generator
-## Video Demo:  <URL>
 
 ## Description
 This tool is designed to provide a simple yet flexible generation of random datasets.
